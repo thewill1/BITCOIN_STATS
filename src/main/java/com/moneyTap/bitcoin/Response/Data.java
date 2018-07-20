@@ -1,95 +1,69 @@
 package com.moneyTap.bitcoin.Response;
 
+import java.math.BigDecimal;
+
 public class Data {
-    private int id;
-    private String name;
-    private String symbol;
-    private String website_slug;
-    private int rank;
-    private long circulating_supply;
-    private long total_supply;
-    private long max_supply;
-    private Quotes quotes;
-    private String last_updated;
+    private long time;
+    private BigDecimal close;
+    private BigDecimal high;
+    private BigDecimal low;
+    private BigDecimal open;
+    private BigDecimal volumefrom;
+    private BigDecimal volumeto;
 
-
-    public int getId() {
-        return id;
+    public long getTime() {
+        return time;
     }
 
-    public void setId(final int id) {
-        this.id = id;
+    public void setTime(final long time) {
+        this.time = time;
     }
 
-    public String getName() {
-        return name;
+    public BigDecimal getClose() {
+        return close;
     }
 
-    public void setName(final String name) {
-        this.name = name;
+    public void setClose(final BigDecimal close) {
+        this.close = close;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public BigDecimal getHigh() {
+        return high;
     }
 
-    public void setSymbol(final String symbol) {
-        this.symbol = symbol;
+    public void setHigh(final BigDecimal high) {
+        this.high = high;
     }
 
-    public String getWebsite_slug() {
-        return website_slug;
+    public BigDecimal getLow() {
+        return low;
     }
 
-    public void setWebsite_slug(final String website_slug) {
-        this.website_slug = website_slug;
+    public void setLow(final BigDecimal low) {
+        this.low = low;
     }
 
-    public int getRank() {
-        return rank;
+    public BigDecimal getOpen() {
+        return open;
     }
 
-    public void setRank(final int rank) {
-        this.rank = rank;
+    public void setOpen(final BigDecimal open) {
+        this.open = open;
     }
 
-    public long getCirculating_supply() {
-        return circulating_supply;
+    public BigDecimal getVolumefrom() {
+        return volumefrom;
     }
 
-    public void setCirculating_supply(final long circulating_supply) {
-        this.circulating_supply = circulating_supply;
+    public void setVolumefrom(final BigDecimal volumefrom) {
+        this.volumefrom = volumefrom;
     }
 
-    public long getTotal_supply() {
-        return total_supply;
+    public BigDecimal getVolumeto() {
+        return volumeto;
     }
 
-    public void setTotal_supply(final long total_supply) {
-        this.total_supply = total_supply;
-    }
-
-    public long getMax_supply() {
-        return max_supply;
-    }
-
-    public void setMax_supply(final long max_supply) {
-        this.max_supply = max_supply;
-    }
-
-    public Quotes getQuotes() {
-        return quotes;
-    }
-
-    public void setQuotes(final Quotes quotes) {
-        this.quotes = quotes;
-    }
-
-    public String getLast_updated() {
-        return last_updated;
-    }
-
-    public void setLast_updated(final String last_updated) {
-        this.last_updated = last_updated;
+    public void setVolumeto(final BigDecimal volumeto) {
+        this.volumeto = volumeto;
     }
 }
