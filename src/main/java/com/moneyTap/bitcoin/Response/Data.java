@@ -4,10 +4,10 @@ import java.math.BigDecimal;
 
 public class Data {
     private long time;
-    private BigDecimal close;
-    private BigDecimal high;
-    private BigDecimal low;
-    private BigDecimal open;
+    private Double close;
+    private Double high;
+    private Double low;
+    private Double open;
     private BigDecimal volumefrom;
     private BigDecimal volumeto;
 
@@ -19,35 +19,35 @@ public class Data {
         this.time = time;
     }
 
-    public BigDecimal getClose() {
+    public Double getClose() {
         return close;
     }
 
-    public void setClose(final BigDecimal close) {
+    public void setClose(final Double close) {
         this.close = close;
     }
 
-    public BigDecimal getHigh() {
+    public Double getHigh() {
         return high;
     }
 
-    public void setHigh(final BigDecimal high) {
+    public void setHigh(final Double high) {
         this.high = high;
     }
 
-    public BigDecimal getLow() {
+    public Double getLow() {
         return low;
     }
 
-    public void setLow(final BigDecimal low) {
+    public void setLow(final Double low) {
         this.low = low;
     }
 
-    public BigDecimal getOpen() {
+    public Double getOpen() {
         return open;
     }
 
-    public void setOpen(final BigDecimal open) {
+    public void setOpen(final Double open) {
         this.open = open;
     }
 

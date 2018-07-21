@@ -1,78 +1,99 @@
 package com.moneyTap.bitcoin.Response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseBody {
-    private String Response;
-    private String Type;
-    private Boolean Aggregated;
-    private List<Data> Data;
-    private long TimeTo;
-    private long TimeFrom;
-    private Boolean FirstValueInArray;
-    private Conversion ConversionType;
+
+    @JsonProperty("Response")
+    private String response;
+
+    @JsonProperty("Type")
+    private String type;
+
+    @JsonProperty("Aggregated")
+    private Boolean aggregated;
+
+    @JsonProperty("Data")
+    private List<Data> dataList;
+
+    @JsonProperty("TimeTo")
+    private long timeTo;
+
+    @JsonProperty("TimeFrom")
+    private long timeFrom;
+
+    @JsonProperty("FirstValueInArray")
+    private Boolean firstValueInArray;
+
+    @JsonProperty("ConversionType")
+    private Conversion conversionType;
+
 
     public String getResponse() {
-        return Response;
+        return response;
     }
 
     public void setResponse(final String response) {
-        Response = response;
+        this.response = response;
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(final String type) {
-        Type = type;
+        this.type = type;
     }
 
     public Boolean getAggregated() {
-        return Aggregated;
+        return aggregated;
     }
 
     public void setAggregated(final Boolean aggregated) {
-        Aggregated = aggregated;
+        this.aggregated = aggregated;
     }
 
-    public List<Data> getData() {
-        return Data;
+    public List<Data> getDataList() {
+        return dataList;
     }
 
-    public void setData(final List<Data> data) {
-        Data = data;
+    public void setDataList(final List<Data> dataList) {
+        this.dataList = dataList;
     }
 
     public long getTimeTo() {
-        return TimeTo;
+        return timeTo;
     }
 
     public void setTimeTo(final long timeTo) {
-        TimeTo = timeTo;
+        this.timeTo = timeTo;
     }
 
     public long getTimeFrom() {
-        return TimeFrom;
+        return timeFrom;
     }
 
     public void setTimeFrom(final long timeFrom) {
-        TimeFrom = timeFrom;
+        this.timeFrom = timeFrom;
     }
 
     public Boolean getFirstValueInArray() {
-        return FirstValueInArray;
+        return firstValueInArray;
     }
 
     public void setFirstValueInArray(final Boolean firstValueInArray) {
-        FirstValueInArray = firstValueInArray;
+        this.firstValueInArray = firstValueInArray;
     }
 
     public Conversion getConversionType() {
-        return ConversionType;
+        return conversionType;
     }
 
     public void setConversionType(final Conversion conversionType) {
-        ConversionType = conversionType;
+        this.conversionType = conversionType;
     }
 }
