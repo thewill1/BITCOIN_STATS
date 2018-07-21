@@ -23,14 +23,4 @@ public class BitcoinController {
         return bitcoinService.getCustomeResponseBodyUnderSpecifiedTime(
                 requestedTimestamp.getTime(), underSpecifiedTime);
     }
-
-    @RequestMapping("/sample")
-    public CustomResponseBody getSampleCustomResponseBody() {
-        final CustomResponseBody customResponseBody = new CustomResponseBody();
-
-        customResponseBody.setAverage(100d);
-        customResponseBody.setMedian(100d);
-
-        return customResponseBody;
-    }
 }
