@@ -53,11 +53,8 @@ public class BitcoinInformation {
 
     @PostConstruct
     public void init() {
-
-        //TODO
-        // Place URL in Properties file
         final ResponseEntity<ResponseBody> responseEntity = restTemplate.getForEntity(
-                "https://min-api.cryptocompare.com/data/histominute?fsym=BTC&tsym=GBP", ResponseBody.class);
+                GlobalConstant.BITCOIN_API_URL, ResponseBody.class);
         final ResponseBody responseBody = responseEntity.getBody();
 
         currentTimeStamp = new Timestamp(System.currentTimeMillis()).getTime();
@@ -89,10 +86,8 @@ public class BitcoinInformation {
     }
 
     public void update(long minuteDifference) {
-        //TODO
-        // Read from property file
         final ResponseEntity<ResponseBody> responseEntity = restTemplate.getForEntity(
-                "https://min-api.cryptocompare.com/data/histominute?fsym=BTC&tsym=GBP" + "&limit=" + minuteDifference,
+                GlobalConstant.BITCOIN_API_URL + "&limit=" + minuteDifference,
                 ResponseBody.class);
         final ResponseBody responseBody = responseEntity.getBody();
 
