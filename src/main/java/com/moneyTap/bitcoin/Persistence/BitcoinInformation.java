@@ -11,14 +11,15 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Component
 public class BitcoinInformation {
-    private volatile double[] bitcoinValues = new double[GlobalConstant.TOTAL_BITCOIN_VALUES];
-    private volatile double[] averageBitcoinVales = new double[GlobalConstant.TOTAL_BITCOIN_VALUES];
+    private volatile Double[] bitcoinValues = new Double[GlobalConstant.TOTAL_BITCOIN_VALUES];
+    private volatile Double[] averageBitcoinVales = new Double[GlobalConstant.TOTAL_BITCOIN_VALUES];
     private volatile long currentTimeStamp;
     private double currentBitcoinValuesUpdatedSum;
 
@@ -27,19 +28,19 @@ public class BitcoinInformation {
     @Autowired
     private RestTemplate restTemplate;
 
-    public double[] getBitcoinValues() {
+    public Double[] getBitcoinValues() {
         return bitcoinValues;
     }
 
-    public void setBitcoinValues(final double[] bitcoinValues) {
+    public void setBitcoinValues(final Double[] bitcoinValues) {
         this.bitcoinValues = bitcoinValues;
     }
 
-    public double[] getAverageBitcoinVales() {
+    public Double[] getAverageBitcoinVales() {
         return averageBitcoinVales;
     }
 
-    public void setAverageBitcoinVales(final double[] averageBitcoinVales) {
+    public void setAverageBitcoinVales(final Double[] averageBitcoinVales) {
         this.averageBitcoinVales = averageBitcoinVales;
     }
 
@@ -65,10 +66,12 @@ public class BitcoinInformation {
     }
 
     private void setBicoinValuesFromApiResponse(final ResponseBody responseBody) {
-        bitcoinValues = responseBody.getDataList()
+        double[] intermediateArrayOfPrimitive = responseBody.getDataList()
                 .stream()
                 .mapToDouble(data -> data.getOpen())
                 .toArray();
+
+        bitcoinValues = Arrays.stream(intermediateArrayOfPrimitive).boxed().toArray(Double[]::new);
 
         logger.log(Level.INFO, "[" + Generic.printArrayValues(bitcoinValues) + "]");
     }
